@@ -56,7 +56,7 @@ jobs:
           cp -R "build/SoftCapper_artefacts/Release/AU/SOFT CAPPER.component" out/
           codesign --force --deep -s - "out/SOFT CAPPER.vst3"
           codesign --force --deep -s - "out/SOFT CAPPER.component"
-          ditto -c -k --keepParent out SOFT-CAPPER-macOS.zip
+          cd out && zip -r -y -X ../SOFT-CAPPER-macOS.zip "SOFT CAPPER.vst3" "SOFT CAPPER.component"
 
       - uses: actions/upload-artifact@v4
         with:
